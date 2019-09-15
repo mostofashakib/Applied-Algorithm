@@ -1,4 +1,4 @@
-78"""
+"""
 Google Phone Screen. Sort a 2D array.
 Link: https://leetcode.com/discuss/interview-question/381172/google-phone-screen-sort-a-2d-array
 Language: Python
