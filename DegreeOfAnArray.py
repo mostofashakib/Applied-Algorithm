@@ -1,7 +1,6 @@
 """
 LeetCode Problem: 697. Degree of an Array
 Link: https://leetcode.com/problems/degree-of-an-array/
-Written by: Mostofa Adib Shakib
 Language: Python
 Written by: Mostofa Adib Shakib
 
