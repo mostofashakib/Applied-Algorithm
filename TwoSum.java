@@ -1,10 +1,9 @@
 /*
+
 LeetCode Problem: . Two Sum
 Link: https://leetcode.com/problems/two-sum/
 Written by: Mostofa Adib Shakib
 Language: Java
-
-This solution uses dictionary and set to find a easy and efficient solution.
 
 */
 
