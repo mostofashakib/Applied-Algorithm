@@ -29,4 +29,3 @@ class Solution:
             dp.append(tmp)
         
         return dp[-1]
-
