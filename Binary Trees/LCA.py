@@ -1,13 +1,6 @@
 """
-Leetcode: Lowest common ancesters
-http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-search-tree.html
-http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-i.html
-http://leetcode.com/2011/07/lowest-common-ancestor-of-a-binary-tree-part-ii.html
+Different variations of the Lowest common ancestor problem
 """
-
-from __future__ import division
-import random
-from BinaryTree import Node, BST, root
 
 # We traverse from the bottom, and once we reach a node which matches one of the two nodes, we pass it up to its parent.
 # The parent would then test its left and right subtree if each contain one of the two nodes.
@@ -30,8 +23,10 @@ def lca(root, a, b):
 
 # With parent pointer
 # find the height h(a), h(b)
-# move the lower node b up by h(a)-h(b) steps
+# move the deeper node b up by h(a)-h(b) steps
 # move a and b up together until a=b
+# Time Complexity: O(h)   h = height
+# Space Complexity: O(n)
 
 def lca_parent(root, node_a, node_b):
     h_a = find_height(root, node_a)
@@ -53,22 +48,38 @@ def find_height(root, node):
         h += 1
     return h
 
-# 1. Both nodes are to the left of the tree.
-# 2. Both nodes are to the right of the tree.
-# 3. One node is on the left while the other is on the right.
-# 4. When the current node equals to either of the two nodes, this node must be the LCA too.
-# O(logn)
 
-def lca_BST(root, a, b):
-    while root:
-        if a <= root.value <= b:
-            return root
-        elif min(a,b) < root.value:
-            root = root.left
-        elif max(a,b) > root.value:
-            root = root.right
-    return None
+"""
+Binary Search Tree Properties:
 
-if __name__ == '__main__':
-    print lca_BST(BST, 1,3)
-    print lca_BST(BST, 9,16)
+Left subtree of a node N contains nodes whose values are lesser than or equal to node N's value.
+Right subtree of a node N contains nodes whose values are greater than node N's value.
+Both left and right subtrees are also BSTs.
+
+Algorithm:
+1) Start traversing the tree from the root node.
+2) If both the nodes p and q are in the right subtree, then move root to the right subtree.
+3) If both the nodes p and q are in the left subtree, then move root to the left subtree.
+4) If both step 2 and step 3 are not true, this means we have found the node which is common to node p's and q's subtrees. and hence we return this common node as the LCA.
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+"""
+
+class Solution(object):
+    def lowestCommonAncestor(self, root, p, q):
+        """
+        :type root: TreeNode
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: TreeNode
+        """
+
+        while root:
+            if p.val > root.val and q.val > root.val:
+                root = root.right
+            elif p.val < root.val and q.val < root.val:
+                root = root.left
+            else:
+                return root
