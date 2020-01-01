@@ -6,6 +6,13 @@ All different kinds of Tree Traversal implemented iteratively
 """
 PreOrder Traversal: Root, Left, Right
 
+Algorithm:
+
+1) Create an empty stack nodeStack and push root node to stack.
+2) Do following while nodeStack is not empty.
+    Pop an item from stack and print it.
+    Push right child of popped item to stack
+    Push left child of popped item to stack
 
 Since all the node is being visited exactly once therefore the time complexity is O(n)
 
@@ -14,14 +21,29 @@ Space Complexity: O(n)
 
 """
 
-
-
-
-
-
-
-
-
+class Solution(object):
+    def preorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+        
+        if not root: return
+        
+        stack = [root]
+        answer = []
+        
+        while stack:
+            temp = stack.pop()
+            answer.append(temp.val)
+            
+            if temp.right:
+                stack.append(temp.right)
+            
+            if temp.left:
+                stack.append(temp.left)
+                
+        return answer
 
 """
 InOrder Traversal: Left, Root, Right
