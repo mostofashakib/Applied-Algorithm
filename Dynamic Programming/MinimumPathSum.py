@@ -4,10 +4,7 @@ Link: https://leetcode.com/problems/minimum-path-sum/
 Written by: Mostofa Adib Shakib
 Language: Python
 
-This solution uses dictionary and set to find a easy and efficient solution.
-
 """
-
 
 class Solution(object):
     def minPathSum(self, grid):
