@@ -1,6 +1,6 @@
 """
-LeetCode Problem: 231. Power of Two
-Link: https://leetcode.com/problems/power-of-two/
+LeetCode Problem: 268. Missing Number
+Link: https://leetcode.com/problems/missing-number/
 Language: Python
 Written by: Mostofa Adib Shakib
 """
