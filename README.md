@@ -1,6 +1,6 @@
 # Applied-Algorithm
 
-This is a repository for my implementation of leetcode problems.
+This is a repository for my implementation of Google Kick Start & Leetcode problems.
 
 Languages: Python, JavaScript, Java
 
