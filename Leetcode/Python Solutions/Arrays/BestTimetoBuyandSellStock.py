@@ -4,8 +4,6 @@ Link: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 Written by: Mostofa Adib Shakib
 Language: Python
 
-Dynamic Programming
-
 """
 
 class Solution:
