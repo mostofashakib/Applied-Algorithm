@@ -1,6 +1,6 @@
 # Applied-Algorithm
 
-#### This is a repository for my implementation of Leetcode, HackerRank, Google Kick Start, Google Code Jam, CodeForces problems.
+#### This is a repository for my implementation of LeetCode, HackerRank, Google Kick Start, Google Code Jam, CodeForces, TopCoder, CodeChef, and AtCoder problems.
 
 ##### Languages: Python, JavaScript, Java, C++, C#
 
