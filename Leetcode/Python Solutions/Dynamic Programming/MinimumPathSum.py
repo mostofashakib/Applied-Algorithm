@@ -6,27 +6,22 @@ Language: Python
 
 """
 
-class Solution(object):
-    def minPathSum(self, grid):
-        """
-        :type grid: List[List[int]]
-        :rtype: int
-        """
+class Solution:
+    def minPathSum(self, grid: List[List[int]]) -> int:
+        if not grid: return 0
         
-        m = len(grid)
-        n = len(grid[0])
-                
-        if not grid:
-            return 0
+        rowLength = len(grid)
+        columnLength = len(grid[0])
         
-        for i in range(1, n):
-            grid[0][i] = grid[0][i] + grid[0][i-1]
-            
-        for i in range(1,m):
-            grid[i][0] = grid[i][0] + grid[i-1][0]
-            
-        for i in range(1,m):
-            for j in range(1,n):
-                grid[i][j] = grid[i][j] + min(grid[i-1][j],grid[i][j-1])
+        for row in range(rowLength):
+            for column in range(columnLength):
+                if row == 0 and column == 0:
+                    continue
+                elif row == 0:
+                    grid[row][column] += grid[row][column-1]
+                elif column == 0:
+                    grid[row][column] += grid[row-1][column]
+                else:
+                    grid[row][column] += min(grid[row][column-1], grid[row-1][column])
                 
-        return grid[m-1][n-1]
+        return grid[-1][-1]
