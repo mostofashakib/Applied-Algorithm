@@ -1,3 +1,12 @@
+"""
+Link: 
+Language: Python
+Written by: Mostofa Adib Shakib
+
+Time complexity: O(n)
+Space Complexity: O(1)
+"""
+
 T = int(input())
 
 for x in range(1, T + 1):
