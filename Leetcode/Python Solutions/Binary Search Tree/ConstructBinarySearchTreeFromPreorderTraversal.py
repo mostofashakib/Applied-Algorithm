@@ -1,10 +1,11 @@
 """
-
 LeetCode Problem: 1008. Construct Binary Search Tree from Preorder Traversal
 Link: https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/
 Language: Python
 Written by: Mostofa Adib Shakib
 
+Explanation: In this approach, we make use of the fact that the given tree is a Binary Search Tree.
+Now, we know that the inorder traversal of a BST gives the nodes in ascending order.
 """
 
 # Definition for a binary tree node.

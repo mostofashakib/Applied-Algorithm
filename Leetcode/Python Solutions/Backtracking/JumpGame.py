@@ -6,6 +6,33 @@ Written by: Mostofa Adib Shakib
 
 """
 
+# Brute-Force solution
+# Time Complexity: O(2!)
+# Space Complexity: O(1)
+
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        if len(nums) <= 1: return True
+        
+        startingIndex = 0
+        endingIndex = len(nums) -1
+        
+        def helper(idx, target, currVal):
+            if idx == target: return True
+            if currVal == 1:
+                if helper(idx+1, target, nums[idx+1]) == True:
+                    return True
+            if idx < target and currVal != 0:
+                for i in range(1,currVal+1):
+                    if i+idx <= target:
+                        if helper(idx+i, target, nums[idx+i]) == True:
+                            return True
+                    
+            return False
+                    
+        return helper(startingIndex, endingIndex, nums[startingIndex])
+
+
 # Backtracking
 # Time Complexity: O(2^n)
 # Space Complexity: O(n)
