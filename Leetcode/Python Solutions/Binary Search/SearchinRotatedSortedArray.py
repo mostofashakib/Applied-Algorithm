@@ -36,32 +36,22 @@ Space complexity : O(1).
 
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        
-        if not nums: return -1           # special cases
-
         start = 0
         end = len(nums) - 1
         
-        if nums[start] < nums[end]:   # only happens if the array is already sorted
-            if target < nums[start]:
-                return -1
-            elif target > nums[end]:
-                return -1
-        
         while start <= end:
-            
             mid = (start+end)//2
             
             if nums[mid] == target:
                 return mid
             
             if nums[mid] >= nums[start]:
-                if nums[start] <= target <= nums[mid]:
+                if nums[start] <= target and nums[mid] >= target:
                     end = mid - 1
                 else:
                     start = mid + 1
             else:
-                if nums[mid] <= target <= nums[end]:
+                if nums[end] >= target and nums[mid] <= target:
                     start = mid + 1
                 else:
                     end = mid - 1

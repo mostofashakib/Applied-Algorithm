@@ -11,6 +11,16 @@ C = Total coins provided
 Time complexity: O(A * C)
 Space complexity: O(A)
 
+What is the magic number beyond which you can always take the highest denominations?
+Take the LCM of all the elements in the coins array
+
+Example 1:
+coins = [25, 10, 5, 1]
+Answer: 50
+
+Example 2:
+coins = [89, 26, 1]
+Answer: 6942 
 """
 
 class Solution:
@@ -23,5 +33,4 @@ class Solution:
                 dp[i] = min( dp[i-coin] + 1, dp[i])  # this relation gives us the optimal solution
 
     # If we do not have an answer then dp[amount] will be amount + 1 and hence dp[amount] > amount will be true. We then return -1. Otherwise, dp[amount] holds the answer
-
         return dp[-1] if dp[-1] != float('inf') else -1 
