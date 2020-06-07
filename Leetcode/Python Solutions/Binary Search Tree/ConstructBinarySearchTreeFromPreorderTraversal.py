@@ -45,7 +45,37 @@ class Solution:
                         break
         return root
         
-# Recursive solution
+# Recursive solution 2
+# Time Complexity: O(n)
+# Space Complexity: O(n)
+
+class Solution:
+    def bstFromPreorder(self, preorder: List[int]) -> TreeNode:
+        queue = deque(preorder)
+        root = TreeNode(queue.popleft())
+        
+        def helper(pointer, node):
+            if node < pointer.val:
+                if pointer.left != None:
+                    helper(pointer.left, node)
+                else:
+                    pointer.left = TreeNode(node)
+            elif node > pointer.val:
+                if pointer.right != None:
+                    helper(pointer.right, node)
+                else:
+                    pointer.right = TreeNode(node)
+        
+        while queue:
+            node = queue.popleft()
+            pointer = root
+            helper(pointer, node)
+                    
+        return root
+
+
+
+# Recursive solution 3
 # Time Complexity: O(n)
 # Space Complexity: O(n)
 
