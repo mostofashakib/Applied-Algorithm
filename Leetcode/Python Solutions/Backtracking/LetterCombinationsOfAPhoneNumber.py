@@ -28,6 +28,3 @@ class Solution:
         current_string = [0] * len(digits)
         recursive_helper(0)
         return result
-    
-    
-    # Time Complexity: O(n4^n)
