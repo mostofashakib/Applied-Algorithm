@@ -1,10 +1,4 @@
 """
-912 Leetcode. Sort an Array
-https://leetcode.com/problems/sort-an-array/
-"""
-
-
-"""
 This program uses recursion to sort an array in O(nlong) time. We take the pivot as the middle most element in the array then we
 recursively sort the left and right half of the array. We return the array if the length of the array is one of less as there is only one element.
 """
