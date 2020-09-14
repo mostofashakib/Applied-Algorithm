@@ -1,8 +1,9 @@
-import collections
-
 """
 Language: Python
 Written by: Mostofa Adib Shakib
+Reading Material: https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/
+Video Material: 
+
 
 Problem Statement: A thief breaks into a clock store. Each clock has a weight and a value which are known to the thief. His knapsack cannot hold more than a
 specified combined weight. His intention is to take clocks whose total value is maximum subject to  the knapsack's weight constraint.
@@ -47,22 +48,45 @@ Space Complexity: O(m*n)
 
 """
 
-Items = collections.namedtuple('Item', ('weight', 'value'))
+# Recursive Solution + Memoization
+# Time Complexity: O(capacity+n)
+# Space Complexity: O(capacity+n)
 
-def optimum_subject_to_capacity(self, items, capacity):
-    v = [ [-1] * (capacity +1) for _ in items ]          # initializing the matrix
+def knapSack(capacity, weights, values, n, memo):
+    # Base Case
+    if n < 0 or capacity == 0:
+        return 0
+    # If the number was calculated previously
+    if memo[n][capacity] != -1: 
+        return memo[n][capacity]
 
-    return self.optimum_subject_to_item_adn_capacity(len(items)-1, capacity)
+    # If the capacity is less than the weight of the item then there is only one possibility
+    # Don't include this item in the answer set and move to the next item
+    if capacity < weights[n]:
+        memo[n][capacity] = knapSack(capacity, weights, values, n-1, memo)
+        return memo[n][capacity]
+    # If the capacity is more than or equal to the weight then there are two possibilities
+    # Either we include the item to the answer set or we do not. We take the maximum of both
+    else:
+        memo[n][capacity] = max(values[n] + knapSack(capacity-weights[n], weights, values, n-1, memo), knapSack(capacity, weights, values, n-1, memo))
+        return memo[n][capacity]
 
-def optimum_subject_to_item_adn_capacity(self, k, available_capacity):
-    if k < 0: return 0      # Base case
 
-    if self.v[k][available_capacity] == -1:
-        without_curr_item = self.optimum_subject_to_item_adn_capacity(k-1, available_capacity)    # finds the maximum value without the current item
-        
-        # finds the maximum value with the current item hence the capacity decreases
-        with_curr_item = 0 if available_capacity < self.items[k].weight else self.optimum_subject_to_item_adn_capacity(k-1, available_capacity - self.items[k].weight)
-        
-        self.v[k][available_capacity] = max(without_curr_item, with_curr_item)  # change the value of the matrix
+# Dynamic Programming
+# Time Complexity: O(capacity+n)
+# Space Complexity: O(capacity+n)
 
-        return self.v[k][available_capacity]  # returns the answer
+def knapSack(capacity, weights, values, n):
+    # Dynamic Programming table
+    dp = [ [0 for i in range(capacity+1)] for j in range(n+1) ]
+
+    for currentItem in range(1, n+1):
+        for currentCapacity in range(1, capacity+1):
+            # If the weight of the item is more than the current capacity. There is only one possibility
+            if weights[currentItem-1] > currentCapacity:
+                dp[currentItem][currentCapacity] = dp[currentItem-1][currentCapacity]
+            # Otherwise there are two possibilities and we take the maximum
+            else:
+                dp[currentItem][currentCapacity] = max(dp[currentItem-1][currentCapacity], values[currentItem-1] + dp[currentItem-1][currentCapacity-weights[currentItem-1]])
+
+    return dp[-1][-1]

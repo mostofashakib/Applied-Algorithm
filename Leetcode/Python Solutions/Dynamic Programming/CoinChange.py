@@ -1,7 +1,7 @@
 """
-
 LeetCode Problem: 322. Coin Change
 Link: https://leetcode.com/problems/coin-change/
+Reading Material: https://www.geeksforgeeks.org/coin-change-dp-7/
 Language: Python
 Written by: Mostofa Adib Shakib
 
@@ -22,6 +22,29 @@ Example 2:
 coins = [89, 26, 1]
 Answer: 6942 
 """
+
+# Dynamic Programming
+# Time Complexity: O(n*m)
+# Space Complexity: O(n)
+
+def coinChange(coins, total, n):
+	# Initializing the dynamic programming table
+	dp = [ [0 for i in range(total+1)] for j in range(n) ]
+
+	for coin in range(n):
+		for current_total in range(1, total+1):
+			if coin == 0:
+				dp[coin][current_total] = (1 + dp[coin][current_total-coins[coin]]) if current_total >= coins[coin] else 0
+			elif current_total < coins[coin]:
+				# If the current_total is less than the value of the coin
+				dp[coin][current_total] = dp[coin-1][current_total]
+			else:
+				dp[coin][current_total] = min(dp[coin-1][current_total], 1 + dp[coin][current_total-coins[coin]])
+	return dp[-1][-1]
+
+# Dynamic Programming - Optimized Space
+# Time Complexity: O(n*m)
+# Space Complexity: O(n)
 
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
