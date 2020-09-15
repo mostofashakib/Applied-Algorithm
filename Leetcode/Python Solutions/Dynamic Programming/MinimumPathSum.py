@@ -3,7 +3,6 @@ LeetCode Problem: 64. Minimum path sum
 Link: https://leetcode.com/problems/minimum-path-sum/
 Written by: Mostofa Adib Shakib
 Language: Python
-
 """
 
 class Solution:
