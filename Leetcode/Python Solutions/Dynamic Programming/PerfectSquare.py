@@ -1,5 +1,4 @@
 """
-
 LeetCode Problem: 279. Perfect Squares
 Link: https://leetcode.com/problems/perfect-squares/
 Language: Python
@@ -10,7 +9,6 @@ C = Total number of perfect squares
 
 Time complexity: O(A * C)
 Space complexity: O(A)
-
 """
 
 class Solution(object):
