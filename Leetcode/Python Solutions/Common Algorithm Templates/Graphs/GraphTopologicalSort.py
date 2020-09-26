@@ -1,5 +1,4 @@
 """
-
 Graph Topological sort > Modified DFS Traversal
 Time complexity: O(V+E)  * V = Vertices & E = Edge
 
@@ -25,24 +24,24 @@ class Graph:
     def addEdge(self, u,v):
         self.graph[u].append(v)
     
-    def TopologicalSortHelper(self, v, visited, stack):
+    def topologicalSortHelper(self, v, visited, stack):
         visited[v] = True # marks a node as visited
 
         for i in self.graph[v]: # visites all the neighbours of a node
             if visited[i] == False:  # recursively calls the function if it's neighbours are unvisited
-                self.TopologicalSortHelper(i, visited, stack)
+                self.topologicalSortHelper(i, visited, stack)
         
-        stack.insert(0, v)  # inserts the node starting from the last recursive call
+        stack.append(v)  # inserts the node starting from the last recursive call
 
-    def TopologicalSort(self):
+    def topologicalSort(self):
         visited = [False] * self.V  # creates an array of unvisited nodes
         stack = []   # creates a stack to store the values
 
         for i in range(self.V):   # visites all the nodes
             if visited[i] == False:    #if a node is unvisited then recursively calls all of it's neighbours
-                self.TopologicalSortHelper(i, visited, stack)
+                self.topologicalSortHelper(i, visited, stack)
         
-        print(stack)  # prints the result starting from the value at the top of the stack
+        print(stack[::-1])  # prints the result starting from the value at the top of the stack
 
 
 g= Graph(6) 
@@ -54,4 +53,4 @@ g.addEdge(2, 3);
 g.addEdge(3, 1); 
   
 print ("Following is a Topological Sort of the given graph")
-g.TopologicalSort() 
+g.topologicalSort() 
