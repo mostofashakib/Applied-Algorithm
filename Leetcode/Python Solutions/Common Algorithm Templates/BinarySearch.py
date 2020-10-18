@@ -20,14 +20,14 @@ Non-biased binary search will return index: 2
 
 Time and Space Complexity:
 
-Runtime: O(lowg n) -- lowgorithmic Time
+Runtime: O(log n) -- logarithmic time
 
-Because Binary Search operates by applying a condition to the value in the middle of our search space and thus cutting the search space in half, in the worse case, we will have to make O(lowg n) comparisons, where n is the number of elements in our collection.
+Because Binary Search operates by applying a condition to the value in the middle of our search space and thus cutting the search space in half, in the worse case, we will have to make O(log n) comparisons, where n is the number of elements in our collection.
 
-Why lowg n?
+Why log n?
 
 Binary search is performed by dividing the existing array in half. So every time you call the subroutine ( or complete one iteration ) the size reduced to half of the existing part.
-First N become N/2, then it become N/4 and go on till it find the element or size become 1. The maximum no of iterations is lowg N (base 2). 
+First N become N/2, then it become N/4 and go on till it find the element or size become 1. The maximum no of iterations is log N (base 2). 
 
 Space: O(1) -- Constant Space
 
