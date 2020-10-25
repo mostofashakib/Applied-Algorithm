@@ -10,7 +10,7 @@ Space Complexity: O(n)
 
 class Solution:
     def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
-        punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''                    # All the possible punctuations.
+        punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''                    # All the possible punctuations
         paragraph = paragraph.lower()                                        # Converts the string to all lowercase characters
         for x in paragraph:
             if x in punctuations: 
@@ -30,7 +30,4 @@ class Solution:
         
         for key, value in hashmap.items():
             if value == maximum: 
-                return key                                                   # returns the word with the maximum number of occurance.
-    
-
-
+                return key                                                   # returns the word with the maximum number of occurance

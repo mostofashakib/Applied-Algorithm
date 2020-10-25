@@ -3,10 +3,6 @@
 https://leetcode.com/problems/permutations/
 Written by: Mostofa Adib Shakib
 Language: Python
-"""
-
-
-"""
 
 Algorithm:
 
@@ -19,7 +15,6 @@ Iterate over the integers from index first to index n - 1.
 
 Time Complexity: O(n*n!)
 Note that there are n! permutations and it requires O(n) time to print a a permutation.
-
 """
 
 class Solution:

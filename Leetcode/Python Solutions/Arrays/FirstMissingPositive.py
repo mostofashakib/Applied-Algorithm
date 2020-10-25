@@ -5,6 +5,28 @@ Written by: Mostofa Adib Shakib
 Language: Python
 """
 
+# Solution 1
+# Time Complexity: O(nlogn)
+# Space Complexity: O(n)
+
+class Solution:
+    def firstMissingPositive(self, nums: List[int]) -> int:
+        missingPositive = 1                     # The lowest positive integer
+
+        for elem in sorted(nums):
+            # if the current lowest positive integer is present in the sorted array then increment missingPositive by 1
+            if elem == missingPositive:
+                missingPositive += 1
+            # if elment is larger than the current lowest positive integer that means there is a gap and hence we break 
+            if elem > missingPositive:
+                break
+        return missingPositive
+
+
+# Solution 2
+# Time Complexity: O(nlogn)
+# Space Complexity: O(n)
+
 class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:
         if not nums: return 1   # if the array is empty 

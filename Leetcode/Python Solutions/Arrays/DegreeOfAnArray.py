@@ -5,8 +5,52 @@ Language: Python
 Written by: Mostofa Adib Shakib
 
 This solution uses dictionary and set to find a easy and efficient solution.
-
 """
+
+# Solution 1
+
+class Solution:
+    def findShortestSubArray(self, nums: List[int]) -> int:
+        hashmap = {}                    # A hashmap that stores the last index of each character
+        freq = {}                       # A hashmap that calculates the frequency of each character
+        length = len(nums)              # Calculates the length of the array
+        minimumLength = float('inf')
+        visited = set()                 # Initializes a visited array to keep track of which num has been processed
+        
+        # Precomputer the ending index of each character in the string
+        for i in range(length):
+            hashmap[nums[i]] = i
+        
+        # Calculate the frequency of each character in a string
+        for num in nums:
+            if num not in freq:
+                freq[num] = 1
+            else:
+                freq[num] += 1
+        
+        # Calculates the highest frequency
+        maxFreq = max(freq.values())
+        
+        # Stores all keys that have the same highest frequency
+        maybe = {}
+        
+        for key, value in freq.items():
+            if value == maxFreq:
+                maybe[key] = 1
+        
+        # Calculates the smallest possible length of a contiguous subarray of nums
+        for i in range(length):
+            val = nums[i]
+            
+            if val in maybe and val not in visited:
+                visited.add(val)
+                minimumLength = min(hashmap[val] - i + 1, minimumLength)
+                
+        
+        return minimumLength
+        
+                
+# Solution 2
 
 class Solution(object):
     def findShortestSubArray(self, nums):
