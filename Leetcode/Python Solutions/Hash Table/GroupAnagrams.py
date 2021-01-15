@@ -3,7 +3,6 @@ LeetCode Problem: 49. Group Anagrams
 Link: https://leetcode.com/problems/group-anagrams/
 Written by: Mostofa Adib Shakib
 Language: Python
-
 """
 
 class Solution:
