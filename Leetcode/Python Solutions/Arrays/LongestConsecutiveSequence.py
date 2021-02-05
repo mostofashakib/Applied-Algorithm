@@ -22,6 +22,39 @@ This means that despite looking like O(n⋅n) complexity, the nested loops actua
 All other computations occur in constant time, so the overall runtime is linear.
 """
 
+# Approach #1
+
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        
+        hashSet = set(nums)
+        ans = 0
+        length = len(nums)
+        visited = set()
+        
+        for i in range(length):
+            currL = currR = nums[i]
+            streak = 1
+            
+            while currL-1 in hashSet and (currL-1) not in visited:
+                visited.add(currL-1)
+                streak += 1
+                currL -= 1
+                
+            
+            while currR+1 in hashSet and (currR+1) not in visited:
+                visited.add(currR+1)
+                streak += 1
+                currR += 1
+            
+            ans = max(ans, streak)
+            
+        return ans
+
+# Approach #2
+
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         longest_streak = 0
