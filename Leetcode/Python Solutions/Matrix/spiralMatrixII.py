@@ -1,38 +1,36 @@
 """
-LeetCode Problem: 54. Spiral Matrix
-Link: https://leetcode.com/problems/spiral-matrix/
-Written by: Mostofa Adib Shakib
+LeetCode Problem: 59. Spiral Matrix II
+Link: https://leetcode.com/problems/spiral-matrix-ii/
 Language: Python
-
-n is the total number of cells in the matrix
+Written by: Mostofa Adib Shakib
 
 Time Complexity: O(n^2)
-Space Complexity: O(n)
+Space Complexity: O(n^2)
 """
 
 class Solution:
-    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
-        if not matrix:
-            return []
+    def generateMatrix(self, n: int) -> List[List[int]]:
+        if n == 1:
+            return [[1]]
         
-        result = []
-        rows, columns = len(matrix), len(matrix[0])
+        matrix = [ [i for i in range(j, j+n)] for j in range(1, n*n +1, n) ]
+        rows, columns = n, n
         forwards, rights = 0, 0
         Rflag, cFlag = False, False
         i, j = 0, 0
-        index = len(matrix) * len(matrix[0])   # maximum number of traversals
+        index = 1  # maximum number of traversals
         
-        while index > 0:
+        while index < n*n +1:
             # Top traversal
             
             if Rflag == False and cFlag == False:
                 if j == columns-1:
                     cFlag = True
-                    result.append(matrix[i][j])
+                    matrix[i][j] = index
                     forwards += 1   # We shrink the top bounds
                     i += 1          # To avoid duplications
                 else:
-                    result.append(matrix[i][j])
+                    matrix[i][j] = index
                     j += 1
             
             # Right traversal
@@ -40,11 +38,11 @@ class Solution:
             elif Rflag == False and cFlag == True:
                 if i == rows - 1:
                     Rflag = True
-                    result.append(matrix[i][j])
+                    matrix[i][j] = index
                     columns -= 1    # We shrink the right bounds
                     j -= 1          # To avoid duplications
                 else:
-                    result.append(matrix[i][j])
+                    matrix[i][j] = index
                     i += 1
             
             # Bottom traversal
@@ -52,11 +50,11 @@ class Solution:
             elif Rflag == True and cFlag == True:
                 if j == rights:
                     cFlag = False
-                    result.append(matrix[i][j])
+                    matrix[i][j] = index
                     rows -= 1       # We shrink the bottom bounds
                     i -= 1          # To avoid duplications
                 else:
-                    result.append(matrix[i][j])
+                    matrix[i][j] = index
                     j -= 1
             
             # Left traversal
@@ -64,14 +62,13 @@ class Solution:
             else:
                 if i == forwards:
                     Rflag = False
-                    result.append(matrix[i][j])
+                    matrix[i][j] = index
                     rights += 1     # We shrink the left bounds
                     j += 1          # To avoid duplications
                 else:
-                    result.append(matrix[i][j])
+                    matrix[i][j] = index
                     i -= 1
             
-            index -= 1
+            index += 1
             
-        return result
-        
+        return matrix
