@@ -1,6 +1,6 @@
 """
 
-This is an exaple of Graph traversal using Depth First Search approach and Adjacency list.
+This is an example of Graph traversal using Depth First Search approach and Adjacency list.
 
 A default dictionary is very similar to a usual dictionary the only difference is that a default dictionary will have default value if 
 key is not assigned.

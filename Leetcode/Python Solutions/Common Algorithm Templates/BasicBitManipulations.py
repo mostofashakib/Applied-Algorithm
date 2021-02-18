@@ -59,7 +59,7 @@ def flip_bit(x, position):
 
 # Is_Bit_set
 
-def is_bet_set(x, position):
+def is_bit_set(x, position):
     shifted = x >> position
     return shifted & 1
 

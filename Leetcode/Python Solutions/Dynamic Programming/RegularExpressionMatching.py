@@ -18,6 +18,7 @@ class Solution:
         dp = [ [False for i in range(m+1)] for j in range(n+1) ]
         
         # Two empty strings are always a match
+        
         dp[0][0] = True
         
         # this is for the 0th row
@@ -33,8 +34,10 @@ class Solution:
                 # if the characters are either a direct match or if the character is a '.'
                 # this is because if the cell substring without the matching character
                 # is also a match then the entire string is a match
+
                 if s[i-1] == p[j-1] or p[j-1] == '.':
                     dp[i][j] = dp[i-1][j-1] # look at the cell diagonally above
+
                 # if we encounter a kleene star
                 elif p[j-1] == '*':
                     # check of the 0th occurance of the number:

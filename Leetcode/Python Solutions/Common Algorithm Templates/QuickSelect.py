@@ -19,7 +19,7 @@ Algorithm:
     2) Partition the array: Rearrange the list in a way that all the elements less than the pivot
     are on the left side of the pivot and all the elements more than the pivot are on the right side
     of the pivot. Then return the index of the pivot element
-    3) Instead of recusing into both sides, we just take the side here the number of interest lies.
+    3) Instead of recusing into both sides, we just take the side where the number of interest lies.
 
 Three cases after partitioning:
     1) K == Pivot: It means that we have found the kth-smallest item.
@@ -37,14 +37,16 @@ def findKthSmallest(self, nums, k):
     :type nums: List[int]
     :type k: int
     :rtype: int
-    """
+    """ 
     def partition(left, right, pivot_index):
         pivot = nums[pivot_index]
+
         # 1. move pivot to end
         nums[pivot_index], nums[right] = nums[right], nums[pivot_index]  
         
         # 2. move all smaller elements to the left
         store_index = left
+
         for i in range(left, right):
             if nums[i] < pivot:
                 nums[store_index], nums[i] = nums[i], nums[store_index]

@@ -13,7 +13,7 @@ Binary Search Tree, is a node-based binary tree data structure which has the fol
 
 # Recursive Binary Search Tree
 
-def BinarySearchTreeRecursive(root, target): 
+def binarySearchTreeRecursive(root, target): 
       
     # Base Cases: root is null or target is present at root 
     if root is None or root.val == target: 
@@ -21,18 +21,17 @@ def BinarySearchTreeRecursive(root, target):
   
     # target is greater than root's target 
     if root.val < target: 
-        return BinarySearchTreeRecursive(root.right,target) 
+        return binarySearchTreeRecursive(root.right,target) 
     
     # target is smaller than root's target 
-    return BinarySearchTreeRecursive(root.left,target) 
+    return binarySearchTreeRecursive(root.left,target) 
 
 
 # Iterative Binary Search Tree
 
-def BinarySearchTreeIterative(root, target): 
+def binarySearchTreeIterative(root, target): 
       
-    # Traverse untill root reaches  
-    # to dead end  
+    # Traverse until root reaches to dead end  
     while root != None:
 
         if target == root.val:

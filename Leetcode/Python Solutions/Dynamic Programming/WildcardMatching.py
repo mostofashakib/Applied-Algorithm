@@ -37,6 +37,7 @@ class Solution:
                 
                 if s[i-1] == p[j-1] or p[j-1] == '?':
                     dp[i][j] = dp[i-1][j-1]
+
                 # kleene star hence we look at the cell to the left and at top
                 # if either of the cells return True then the string is a match
                 # this is because we need to consider the 0th occurance -> cell to the left

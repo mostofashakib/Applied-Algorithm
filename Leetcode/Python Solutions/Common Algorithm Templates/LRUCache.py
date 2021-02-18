@@ -1,6 +1,6 @@
 """
-LeetCode Problem: 146. LRU Cache
-Link: https://leetcode.com/problems/lru-cache/
+LRU implementation using a doubly linked list
+
 Language: Python3
 Written by: Mostofa Adib Shakib
 """

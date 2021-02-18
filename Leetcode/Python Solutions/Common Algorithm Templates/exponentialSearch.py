@@ -39,7 +39,7 @@ def exponentialSearch(arr, target):
     :rtype: int
     """
 
-    def BinarySearch(arr, low, high, target):
+    def binarySearch(arr, low, high, target):
 
         while low <= high:
             mid = low + (high-low)//2
@@ -62,7 +62,7 @@ def exponentialSearch(arr, target):
     while index < n and arr[index] < target:
         index = index * 2
 
-    return BinarySearch(arr, index//2, min(index, n-1), target)
+    return binarySearch(arr, index//2, min(index, n-1), target)
 
 
 print(exponentialSearch([7,8,8,8,9], 9))

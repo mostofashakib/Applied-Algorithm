@@ -47,7 +47,7 @@ def BinarySearch(arr, target):
 	high = len(arr)-1
 
 	while low <= high:
-		mid = low + (high-low)//2
+		mid = (low+high)//2
 
 		if arr[mid] == target:
 			return mid
@@ -96,11 +96,15 @@ def RightBinarySearch(nums, target):
     high = len(nums) - 1
     
     while low < high:
+
         mid = (low+high) // 2
+
         if nums[mid] > target:
         	high = mid - 1
+
         elif nums[mid+1] > target:
         	return mid
         else:
         	low = mid + 1
+            
     return high

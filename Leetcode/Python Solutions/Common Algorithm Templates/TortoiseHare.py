@@ -1,5 +1,8 @@
 """
+Tortoise-Hare algorithm for cycle and intersection detection
 
+Language: Python
+Written by: Mostofa Adib Shakib
 
 """
 
