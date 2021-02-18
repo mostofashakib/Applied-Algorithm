@@ -1,9 +1,8 @@
 """
-Tortoise-Hare algorithm for cycle and intersection detection
+Tortoise-Hare algorithm to find the entrance point of cycle in a linked list
 
 Language: Python
 Written by: Mostofa Adib Shakib
-
 """
 
 class Solution(object):

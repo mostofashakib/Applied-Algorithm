@@ -10,9 +10,9 @@ Written by: Mostofa Adib Shakib
 # Space Complexity: O(1)
 
 class Node:
-    def __init__(self, value, nextNode=None):
+    def __init__(self, value):
         self.value = value
-        self.next = nextNode
+        self.next = None
 
 class MyCircularQueue:
 
