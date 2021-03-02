@@ -3,8 +3,6 @@ LeetCode Problem: 242. Valid Anagram
 Link: https://leetcode.com/problems/valid-anagram/
 Written by: Mostofa Adib Shakib
 Language: Python
-
-
 """
 
 class Solution(object):
