@@ -1,9 +1,8 @@
 """
-965 Leetcode. Univalued Binary Tree
-https://leetcode.com/problems/univalued-binary-tree/
-"""
-
-"""
+LeetCode Problem:965. Univalued Binary Tree
+Link: https://leetcode.com/problems/univalued-binary-tree/
+Language: Python
+Written by: Mostofa Adib Shakib
 
 Two versions of the solution
 
@@ -18,7 +17,6 @@ In this version of the solution we use a stack. We push all the left child of a 
 If we reach a Null node and the stack is not empty then we pop an element from the stack and and compare it's value with the root node
 if they are equal then we append it's right child to the stack or else we return False. This method is a bit slower as we are iterating over
 all the left child of a node before comparing it's value with the root node.
-
 """
 
 # Definition for a binary tree node.
