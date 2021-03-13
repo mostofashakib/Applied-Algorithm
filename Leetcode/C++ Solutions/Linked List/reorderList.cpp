@@ -1,6 +1,6 @@
 /*
 LeetCode Problem: 143. Reorder List
-Link: https://leetcode.com/problems/reorder-list/
+Link: https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 Language: C++
 Written by: Mostofa Adib Shakib
 
