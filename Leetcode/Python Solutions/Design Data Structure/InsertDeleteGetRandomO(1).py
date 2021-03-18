@@ -3,10 +3,11 @@ LeetCode Problem 380. Insert Delete GetRandom O(1)
 Link: https://leetcode.com/problems/insert-delete-getrandom-o1/
 Language: Python
 Written by: Mostofa Adib Shakib
-
-Time Complexity: O(1)
-Space Complexity: O(n)
 """
+
+# Optimal solution
+# Time Complexity: O(1)
+# Space Complexity: O(n)
 
 class RandomizedSet:
 
@@ -46,16 +47,19 @@ class RandomizedSet:
 
         # checks if the element is present in the hashmap. If the element is not present then return False
         # if the element is present in the hashmap then it gets the index of the element in the array
-        # deletes the element from the array and also removes it from the hashmap. Then it return's True
+        # move the last element to the place idx of the element to delete the last element from the array
+        # also remove it from the hashmap.
 
         if val not in self.hashmap:
             return False
         else:
             index = self.hashmap[val]
+            last_element = self.array[-1]
+            self.array[index] = last_element
+            self.hashmap[last_element] = index
+            self.array.pop()
             del self.hashmap[val]
-            self.array.remove(val)
             return True
-
 
     def getRandom(self) -> int:
         """
@@ -70,20 +74,9 @@ class RandomizedSet:
         index = random.randint(0, length-1)
         return self.array[index]
 
-
-# Your RandomizedSet object will be instantiated and called as such:
-# obj = RandomizedSet()
-# param_1 = obj.insert(val)
-# param_2 = obj.remove(val)
-# param_3 = obj.getRandom()
-
-
-
 # Inefficient solution
-# Time Complexity: O(1)
+# Time Complexity: O(n)
 # Space Complexity: O(n)
-
-
 
 class RandomizedSet:
 
