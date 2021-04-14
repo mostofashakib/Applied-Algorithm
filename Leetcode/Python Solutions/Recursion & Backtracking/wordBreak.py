@@ -7,33 +7,33 @@ Language: Python
 """
 
 """ Recursion + Memoization
-Let dfs(k) be a possibility to split string s[k:] into words from wordSet. Then to check if word s[k:] can be splitted,
-we need to check if for some i word s[k:i] in our wordSet and if s[i:] can be splitted, which is dfs(i).
+Let recursiveHelper(k) be a possibility to split string s[k:] into words from wordSet. Then to check if word s[k:] can be splitted,
+we need to check if for some i word s[k:i] in our wordSet and if s[i:] can be splitted, which is recursiveHelper(i).
 
-Time Complexity: O(n^2)
+Time Complexity: O(n^3)
 Space Complexity: O(n)
 """
 
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
-        wordDict = set(wordDict)
+        wordSet = set(wordDict)
         
         @lru_cache(maxsize=None)
-        def dfs(index):
+        def recursiveHelper(index):
             if index == len(s):
                 return True
             
             for i in range(index+1, len(s)+1):
-                if s[index:i] in wordDict and dfs(i):
+                if s[index:i] in wordSet and recursiveHelper(i):
                     return True
                 
             return False
         
-        return dfs(0)
+        return recursiveHelper(0)
 
 
 # Dynamic Programming
-# Time Complexity: O(n*m)
+# Time Complexity: O(n^3)
 # Space Complexity: O(n)
 
 class Solution:
