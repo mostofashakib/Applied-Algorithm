@@ -20,24 +20,25 @@ Approach:
 class Solution:
     def topKFrequent(self, words: List[str], k: int) -> List[str]:
         result = []
-        
         hashmap = {}
+        maxHeap = []
         
         for i in words:
             if i not in hashmap:
                 hashmap[i] = 1
             else:
                 hashmap[i] += 1
-
-        # multiply frequency by -1 to transform a minheap to max heap
-        heap = [(-freq, word) for word, freq in hashmap.items()]
-
-        # transforms a list to a max heap in linear tiem
-        heapq.heapify(heap)
         
-        while k>0:
-            result.append(heapq.heappop(heap)[1])
-            k-=1
+        for key, value in hashMap.items():
+            # multiply frequency by -1 to transform a minheap to max heap
+            heapq.heappush(maxHeap, (-value, key))
+        
+        result = []
+        
+        while maxHeap and k > 0:
+            result.append(heapq.heappop(maxHeap)[1])
+            k -= 1
+        
         return result
 
 # Solution 2: Sorting
